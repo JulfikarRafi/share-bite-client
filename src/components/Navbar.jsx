@@ -40,18 +40,18 @@ const Navbar = () => {
             }>
               Home
             </NavLink>
-            <NavLink to="/allplants" className={({ isActive }) =>
+            <NavLink to="/availablefoods" className={({ isActive }) =>
               isActive ? " text-xl border-b-2 border-white" : "text-xl"
             }>
-              All Plants
+              Available Foods
             </NavLink>
 
             {user && (
               <>
-                <NavLink to="/addplants" className={({ isActive }) =>
+                <NavLink to="/addfoods" className={({ isActive }) =>
                   isActive ? " text-xl border-b-2 border-white" : "text-xl"
                 }>
-                  Add Plants
+                  Add Foods
                 </NavLink>
                 <NavLink to="/myplants" className={({ isActive }) =>
                   isActive ? " text-xl border-b-2 border-white" : "text-xl"
