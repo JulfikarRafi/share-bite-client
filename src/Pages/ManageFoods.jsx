@@ -28,7 +28,7 @@ const ManageFoods = () => {
       try {
         setLoading(true);
         // Fetch all foods added by the logged in user
-        const res = await axios.get(`http://localhost:3000/userfoods?email=${user.email}`);
+        const res = await axios.get(`https://my-assignment-11-server-three.vercel.app/userfoods?email=${user.email}`);
         setFoods(res.data);
       } catch (error) {
         console.error('Failed to fetch foods:', error);
@@ -45,7 +45,7 @@ const ManageFoods = () => {
     if (!window.confirm('Are you sure you want to delete this food?')) return;
 
     try {
-      await axios.delete(`http://localhost:3000/food/${id}`);
+      await axios.delete(`https://my-assignment-11-server-three.vercel.app/food/${id}`);
       setFoods(prev => prev.filter(food => food._id !== id));
       alert('Food deleted successfully');
     } catch (error) {
@@ -79,7 +79,7 @@ const ManageFoods = () => {
     if (!selectedFood) return;
 
     try {
-      const res = await axios.put(`http://localhost:3000/food/${selectedFood._id}`, formData);
+      const res = await axios.put(`https://my-assignment-11-server-three.vercel.app/food/${selectedFood._id}`, formData);
       if (res.data.modifiedCount > 0) {
         alert('Food updated successfully');
         // Update foods state with new data
