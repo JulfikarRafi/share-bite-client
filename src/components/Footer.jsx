@@ -3,13 +3,8 @@ import { Link } from 'react-router';
 
 const Footer = () => {
     return (
-        <footer className="footer footer-horizontal footer-center bg-green-100 text-green-800 rounded p-10">
-            <nav className="grid grid-flow-col gap-4">
-                <Link to="/privacy" className="link link-hover">Privacy Policy</Link>
-                <Link to="/terms" className="link link-hover">Terms & Conditions</Link>
-                <Link to="/allplants" className="link link-hover">All Plants</Link>
-                
-            </nav>
+        <footer className="footer footer-horizontal footer-center bg-orange-100 text-black rounded p-10">
+            
             <nav>
                 <div className="grid grid-flow-col gap-4">
                     <a href='https://x.com/raidencmr?s=21' target="_blank">
@@ -48,7 +43,7 @@ const Footer = () => {
                 </div>
             </nav>
             <aside>
-                <p>Copyright © {new Date().getFullYear()} - All right reserved by GreenSpace</p>
+                <p>Copyright © {new Date().getFullYear()} - All right reserved by Sharebite</p>
             </aside>
         </footer>
     );

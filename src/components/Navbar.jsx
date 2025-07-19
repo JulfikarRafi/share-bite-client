@@ -77,14 +77,14 @@ const Navbar = () => {
                   <span className="absolute top-full left-1/2 -translate-x-1/2 mt-1 text-sm bg-gray-700 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">{user.displayName}</span>
                 </div>
                 <button className="btn border border-white btn-neutral text-sm px-10 py-5 text-white bg-black
-                hover:bg-green-800 transition-colors rounded-sm " onClick={handleLogout}>Logout</button>
+                hover:bg-orange-800 transition-colors rounded-sm " onClick={handleLogout}>Logout</button>
 
 
 
 
               </>
             ) : (
-              <NavLink to="/login" className=" btn shadow-2xl border border-white btn-neutral text-sm  px-10 py-5 rounded-sm bg-white text-black hover:bg-green-800 transition-colors ">Login</NavLink>
+              <NavLink to="/login" className=" btn shadow-2xl border border-white btn-neutral text-sm  px-10 py-5 rounded-sm bg-white text-black hover:bg-orange-800 transition-colors ">Login / register</NavLink>
             )}
           </div>
 
