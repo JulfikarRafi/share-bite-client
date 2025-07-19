@@ -53,10 +53,15 @@ const Navbar = () => {
                 }>
                   Add Foods
                 </NavLink>
-                <NavLink to="/myplants" className={({ isActive }) =>
+                <NavLink to="/managefoods" className={({ isActive }) =>
                   isActive ? " text-xl border-b-2 border-white" : "text-xl"
                 }>
-                  My Plants
+                  Manage my Foods
+                </NavLink>
+                <NavLink to="/myrequests" className={({ isActive }) =>
+                  isActive ? " text-xl border-b-2 border-white" : "text-xl"
+                }>
+                  My Requested Foods
                 </NavLink>
               </>
             )}

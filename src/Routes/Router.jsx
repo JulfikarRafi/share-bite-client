@@ -6,19 +6,21 @@ import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import AddFoods from "../Pages/AddFoods";
 import AvailableFoods from "../Pages/AvailableFoods";
+import FoodDetails from "../Pages/FoodDetails";
+import MyRequest from "../Pages/MyRequest";
 
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component:MyLayouts,
-    children:[
-        {
-            index:true,
-            Component:Home,
-        },
-        {
+    Component: MyLayouts,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
         path: "login",
         Component: Login,
 
@@ -36,10 +38,22 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:'availablefoods',
-        Component:AvailableFoods,
+        path: 'availablefoods',
+        Component: AvailableFoods,
 
       },
+      {
+        path: 'food/:id',
+        Component: FoodDetails,
+      },
+      {
+        path: 'myrequests',
+        element: (
+          <PrivateRoute>
+            <MyRequest></MyRequest>
+          </PrivateRoute>
+        ),
+      }
 
     ]
   },
