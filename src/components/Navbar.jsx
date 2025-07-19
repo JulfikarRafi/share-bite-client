@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-green-800 drop-shadow-2xl px-4 lg:px-28 relative text-white">
+      <nav className="bg-orange-400 drop-shadow-2xl px-4 lg:px-28 relative text-white">
         <div className="flex justify-between items-center py-6 container mx-auto">
 
           <div className="flex items-center gap-2">
