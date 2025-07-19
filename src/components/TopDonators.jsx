@@ -26,7 +26,7 @@ const TopDonators = () => {
   return (
     <div className="bg-gradient-to-br from-yellow-50 to-orange-100 py-10 px-4 md:px-8 rounded-xl shadow-md my-12">
       <h2 className="text-2xl md:text-4xl font-bold text-center text-orange-600 mb-6">
-        🌟 Top Donators of the Week
+        🌟 Top Donators of last year
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
