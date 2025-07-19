@@ -153,9 +153,7 @@ import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const fetchMyRequests = async (email) => {
-  const res = await axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${email}`, {
-    withCredentials: true,
-  });
+  const res = await axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${email}`);
   return res.data;
 };
 
