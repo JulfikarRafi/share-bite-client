@@ -5,6 +5,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import AddFoods from "../Pages/AddFoods";
+import AvailableFoods from "../Pages/AvailableFoods";
 
 
 
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
             <AddFoods></AddFoods>
           </PrivateRoute>
         ),
+      },
+      {
+        path:'availablefoods',
+        Component:AvailableFoods,
+
       },
 
     ]
