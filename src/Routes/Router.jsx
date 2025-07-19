@@ -8,6 +8,7 @@ import AddFoods from "../Pages/AddFoods";
 import AvailableFoods from "../Pages/AvailableFoods";
 import FoodDetails from "../Pages/FoodDetails";
 import MyRequest from "../Pages/MyRequest";
+import ManageFoods from "../Pages/ManageFoods";
 
 
 
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
             <MyRequest></MyRequest>
           </PrivateRoute>
         ),
+      },
+      {
+        path: 'managefoods',
+        element: (
+          <PrivateRoute>
+            <ManageFoods></ManageFoods>
+          </PrivateRoute>
+        )
       }
 
     ]
