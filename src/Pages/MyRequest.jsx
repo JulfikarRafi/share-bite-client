@@ -52,7 +52,9 @@ const MyRequest = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:3000/myrequests?email=${user.email}`)
+      axios.get(`http://localhost:3000/myrequests?email=${user.email}`,{
+        credentials:'include'
+      })
         .then(res => {
           setRequests(res.data);
           setLoading(false);

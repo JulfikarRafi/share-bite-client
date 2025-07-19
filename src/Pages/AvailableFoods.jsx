@@ -107,6 +107,90 @@
 
 
 
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { useNavigate } from 'react-router';
+
+// const AvailableFoods = () => {
+//   const [foods, setFoods] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [sortOrder, setSortOrder] = useState(''); // 'asc', 'desc', or ''
+
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchFoods = async () => {
+//       setLoading(true);
+//       try {
+//         // Add sort query param if sorting applied
+//         const url = sortOrder
+//           ? `http://localhost:3000/availablefoods?sortByExpire=${sortOrder}`
+//           : 'http://localhost:3000/availablefoods';
+
+//         const res = await axios.get(url);
+//         setFoods(res.data);
+//       } catch (err) {
+//         console.error(err);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchFoods();
+//   }, [sortOrder]);
+
+//   if (loading) return <div className="text-center mt-10">Loading available foods...</div>;
+//   if (foods.length === 0) return <div className="text-center mt-10">No available foods found.</div>;
+
+//   return (
+//     <div className="max-w-6xl mx-auto p-4">
+//       {/* Sorting UI */}
+//       <div className="flex justify-end mb-4">
+//         <label htmlFor="sortExpire" className="mr-2 font-semibold">
+//           Sort by Expiration Date:
+//         </label>
+//         <select
+//           id="sortExpire"
+//           value={sortOrder}
+//           onChange={(e) => setSortOrder(e.target.value)}
+//           className="select select-bordered w-48"
+//         >
+//           <option value="">-- None --</option>
+//           <option value="asc">Soonest to Expire</option>
+//           <option value="desc">Latest to Expire</option>
+//         </select>
+//       </div>
+
+//       {/* Food Cards Grid */}
+//       <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+//         {foods.map((food) => (
+//           <div key={food._id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+//             <img
+//               src={food.foodImage}
+//               alt={food.foodName}
+//               className="w-full h-48 object-cover"
+//             />
+//             <div className="p-4 flex flex-col flex-grow">
+//               <h3 className="text-xl font-semibold mb-2">{food.foodName}</h3>
+//               <p className="text-gray-600 mb-1"><strong>Quantity:</strong> {food.foodQuantity}</p>
+//               <p className="text-gray-600 mb-1"><strong>Pickup Location:</strong> {food.pickupLocation}</p>
+//               <p className="text-gray-600 mb-4"><strong>Expires:</strong> {new Date(food.expiredDateTime).toLocaleString()}</p>
+//               <button
+//                 className="mt-auto btn btn-outline hover:bg-amber-500 text-black hover:text-white border border-orange-500"
+//                 onClick={() => navigate(`/food/${food._id}`)}
+//               >
+//                 View Details
+//               </button>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default AvailableFoods;
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
@@ -115,6 +199,8 @@ const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState(''); // 'asc', 'desc', or ''
+  const [searchTerm, setSearchTerm] = useState('');
+  const [layout, setLayout] = useState('three'); // 'two' or 'three'
 
   const navigate = useNavigate();
 
@@ -122,10 +208,13 @@ const AvailableFoods = () => {
     const fetchFoods = async () => {
       setLoading(true);
       try {
-        // Add sort query param if sorting applied
-        const url = sortOrder
-          ? `http://localhost:3000/availablefoods?sortByExpire=${sortOrder}`
-          : 'http://localhost:3000/availablefoods';
+        let url = `http://localhost:3000/availablefoods`;
+
+        // Add query params
+        const params = [];
+        if (sortOrder) params.push(`sortByExpire=${sortOrder}`);
+        if (searchTerm) params.push(`search=${searchTerm}`);
+        if (params.length > 0) url += `?${params.join('&')}`;
 
         const res = await axios.get(url);
         setFoods(res.data);
@@ -137,32 +226,60 @@ const AvailableFoods = () => {
     };
 
     fetchFoods();
-  }, [sortOrder]);
+  }, [sortOrder, searchTerm]);
 
-  if (loading) return <div className="text-center mt-10">Loading available foods...</div>;
-  if (foods.length === 0) return <div className="text-center mt-10">No available foods found.</div>;
+  const handleLayoutToggle = () => {
+    setLayout(prev => (prev === 'three' ? 'two' : 'three'));
+  };
+
+  // if (loading) return <div className="text-center mt-10">Loading available foods...</div>;
+  // if (foods.length === 0) return <div className="text-center mt-10">No available foods found.</div>;
 
   return (
     <div className="max-w-6xl mx-auto p-4">
-      {/* Sorting UI */}
-      <div className="flex justify-end mb-4">
-        <label htmlFor="sortExpire" className="mr-2 font-semibold">
-          Sort by Expiration Date:
-        </label>
-        <select
-          id="sortExpire"
-          value={sortOrder}
-          onChange={(e) => setSortOrder(e.target.value)}
-          className="select select-bordered w-48"
+      {/* Controls */}
+      <div className="flex flex-col md:flex-row justify-between gap-4 mb-6">
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search by food name"
+          className="input w-full md:w-72"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        {/* Sort */}
+        <div className="flex items-center gap-2">
+          <label htmlFor="sortExpire" className="font-semibold">
+            Sort by Expiration:
+          </label>
+          <select
+            id="sortExpire"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="select select-bordered"
+          >
+            <option value="">-- None --</option>
+            <option value="asc">Soonest to Expire</option>
+            <option value="desc">Latest to Expire</option>
+          </select>
+        </div>
+
+        {/* Layout toggle */}
+        <button
+          onClick={handleLayoutToggle}
+          className="btn btn-sm btn-outline border-orange-400 text-orange-600"
         >
-          <option value="">-- None --</option>
-          <option value="asc">Soonest to Expire</option>
-          <option value="desc">Latest to Expire</option>
-        </select>
+          Switch to {layout === 'three' ? '2-column' : '3-column'} view
+        </button>
       </div>
 
       {/* Food Cards Grid */}
-      <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        className={`grid gap-6 ${
+          layout === 'three' ? 'sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-1 md:grid-cols-2'
+        }`}
+      >
         {foods.map((food) => (
           <div key={food._id} className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
             <img
@@ -190,4 +307,5 @@ const AvailableFoods = () => {
 };
 
 export default AvailableFoods;
+
 
