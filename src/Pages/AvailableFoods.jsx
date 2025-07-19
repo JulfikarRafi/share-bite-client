@@ -176,7 +176,7 @@ const AvailableFoods = () => {
               <p className="text-gray-600 mb-1"><strong>Pickup Location:</strong> {food.pickupLocation}</p>
               <p className="text-gray-600 mb-4"><strong>Expires:</strong> {new Date(food.expiredDateTime).toLocaleString()}</p>
               <button
-                className="mt-auto btn btn-outline btn-primary"
+                className="mt-auto btn btn-outline hover:bg-amber-500 text-black hover:text-white border border-orange-500"
                 onClick={() => navigate(`/food/${food._id}`)}
               >
                 View Details
