@@ -10,7 +10,7 @@ const FeaturedFood = () => {
   useEffect(() => {
     const fetchFeaturedFoods = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/availablefoods');
+        const res = await axios.get('https://my-assignment-11-server-three.vercel.app/availablefoods');
         // Sort by descending foodQuantity and take top 6
         const sorted = res.data
           .sort((a, b) => Number(b.foodQuantity) - Number(a.foodQuantity))

@@ -6,7 +6,7 @@
 //   const [loading, setLoading] = useState(true);
 
 //   useEffect(() => {
-//     axios.get('http://localhost:3000/availablefoods')
+//     axios.get('https://my-assignment-11-server-three.vercel.app/availablefoods')
 //       .then(res => {
 //         setFoods(res.data);
 //         setLoading(false);
@@ -61,7 +61,7 @@
 //   const navigate = useNavigate();
 
 //   useEffect(() => {
-//     axios.get('http://localhost:3000/availablefoods')
+//     axios.get('https://my-assignment-11-server-three.vercel.app/availablefoods')
 //       .then(res => {
 //         setFoods(res.data);
 //         setLoading(false);
@@ -124,7 +124,7 @@ const AvailableFoods = () => {
     const fetchFoods = async () => {
       setLoading(true);
       try {
-        let url = `http://localhost:3000/availablefoods`;
+        let url = `https://my-assignment-11-server-three.vercel.app/availablefoods`;
 
         // Add query params
         const params = [];

@@ -9,7 +9,7 @@
 
 //   useEffect(() => {
 //     if (user?.email) {
-//       axios.get(`http://localhost:3000/myrequests?email=${user.email}`)
+//       axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${user.email}`)
 //         .then(res => {
 //           setRequests(res.data);
 //           setLoading(false);
@@ -52,7 +52,7 @@
 
 //   useEffect(() => {
 //     if (user?.email) {
-//       axios.get(`http://localhost:3000/myrequests?email=${user.email}`)
+//       axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${user.email}`)
 //         .then(res => {
 //           setRequests(res.data);
 //           setLoading(false);
@@ -103,7 +103,7 @@
 //   useEffect(() => {
 //     if (user?.email) {
 //       axios
-//         .get(`http://localhost:3000/myrequests?email=${user.email}`, {
+//         .get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${user.email}`, {
 //           withCredentials: true, 
 //         })
 //         .then((res) => {
@@ -153,7 +153,7 @@ import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const fetchMyRequests = async (email,accessToken) => {
-  const res = await axios.get(`http://localhost:3000/myrequests?email=${email}`,{
+  const res = await axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${email}`,{
     headers:{
       authorization :`Bearer ${accessToken}`
     }
