@@ -9,7 +9,7 @@
 
 //   useEffect(() => {
 //     if (user?.email) {
-//       axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${user.email}`)
+//       axios.get(`http://localhost:3000/myrequests?email=${user.email}`)
 //         .then(res => {
 //           setRequests(res.data);
 //           setLoading(false);
@@ -52,7 +52,7 @@
 
 //   useEffect(() => {
 //     if (user?.email) {
-//       axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${user.email}`)
+//       axios.get(`http://localhost:3000/myrequests?email=${user.email}`)
 //         .then(res => {
 //           setRequests(res.data);
 //           setLoading(false);
@@ -103,7 +103,7 @@
 //   useEffect(() => {
 //     if (user?.email) {
 //       axios
-//         .get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${user.email}`, {
+//         .get(`http://localhost:3000/myrequests?email=${user.email}`, {
 //           withCredentials: true, 
 //         })
 //         .then((res) => {
@@ -152,8 +152,12 @@ import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { AuthContext } from '../Provider/AuthProvider';
 
-const fetchMyRequests = async (email) => {
-  const res = await axios.get(`https://my-assignment-11-server-three.vercel.app/myrequests?email=${email}`);
+const fetchMyRequests = async (email,accessToken) => {
+  const res = await axios.get(`http://localhost:3000/myrequests?email=${email}`,{
+    headers:{
+      authorization :`Bearer ${accessToken}`
+    }
+  });
   return res.data;
 };
 
@@ -167,8 +171,8 @@ const MyRequest = () => {
     error,
   } = useQuery({
     queryKey: ['myRequests', user?.email],
-    enabled: !!user?.email, // Only fetch when email is available
-    queryFn: () => fetchMyRequests(user.email),
+    enabled: !!user?.email && !!user?.accessToken, // Only fetch when email is available
+    queryFn: () => fetchMyRequests(user.email, user.accessToken),
   });
 
   if (isLoading) return <div className="text-center mt-10">Loading your requests...</div>;
@@ -182,6 +186,8 @@ const MyRequest = () => {
 
   if (requests.length === 0) return <div className="text-center mt-10">You have not requested any foods.</div>;
 
+
+   console.log('token in the context',user.accessToken);
   return (
     <div className="max-w-6xl mx-auto p-4 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       {requests.map((food) => (

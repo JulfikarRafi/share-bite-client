@@ -25,7 +25,7 @@
 //     };
 
 //     try {
-//       const res = await axios.post('https://my-assignment-11-server-three.vercel.app/addfood', foodData);
+//       const res = await axios.post('http://localhost:3000/addfood', foodData);
 //       if (res.data.insertedId) {
 //         alert('Food added successfully!');
 //         reset();
@@ -109,7 +109,7 @@ const AddFoods = () => {
     };
 
     try {
-      const res = await axios.post('https://my-assignment-11-server-three.vercel.app/addfood', foodData);
+      const res = await axios.post('http://localhost:3000/addfood', foodData);
       if (res.data.insertedId) {
         Swal.fire({
           title: 'Success!',

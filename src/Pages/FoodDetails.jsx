@@ -8,7 +8,7 @@
 //   const [loading, setLoading] = useState(true);
 
 //   useEffect(() => {
-//     axios.get(`https://my-assignment-11-server-three.vercel.app/food/${id}`)
+//     axios.get(`http://localhost:3000/food/${id}`)
 //       .then(res => {
 //         setFood(res.data);
 //         setLoading(false);
@@ -91,7 +91,7 @@
 //   const [notes, setNotes] = useState('');
 
 //   useEffect(() => {
-//     axios.get(`https://my-assignment-11-server-three.vercel.app/food/${id}`)
+//     axios.get(`http://localhost:3000/food/${id}`)
 //       .then(res => {
 //         setFood(res.data);
 //         setLoading(false);
@@ -207,7 +207,7 @@
 //   const [notes, setNotes] = useState('');
 
 //   useEffect(() => {
-//     axios.get(`https://my-assignment-11-server-three.vercel.app/food/${id}`)
+//     axios.get(`http://localhost:3000/food/${id}`)
 //       .then(res => {
 //         setFood(res.data);
 //         setLoading(false);
@@ -230,7 +230,7 @@
 
 //     try {
 //       const res = await axios.patch(
-//         `https://my-assignment-11-server-three.vercel.app/food/request/${food._id}`,
+//         `http://localhost:3000/food/request/${food._id}`,
 //         requestData
 //       );
 
@@ -333,7 +333,7 @@ const FoodDetails = () => {
   const [notes, setNotes] = useState('');
 
   useEffect(() => {
-    axios.get(`https://my-assignment-11-server-three.vercel.app/food/${id}`)
+    axios.get(`http://localhost:3000/food/${id}`)
       .then(res => {
         setFood(res.data);
         setLoading(false);
@@ -356,7 +356,7 @@ const FoodDetails = () => {
 
     try {
       const res = await axios.patch(
-        `https://my-assignment-11-server-three.vercel.app/food/request/${food._id}`,
+        `http://localhost:3000/food/request/${food._id}`,
         requestData
       );
 
