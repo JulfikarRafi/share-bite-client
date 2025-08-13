@@ -9,6 +9,7 @@ import AvailableFoods from "../Pages/AvailableFoods";
 import FoodDetails from "../Pages/FoodDetails";
 import MyRequest from "../Pages/MyRequest";
 import ManageFoods from "../Pages/ManageFoods";
+import Blogs from "../Pages/Blogs";
 
 
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             <ManageFoods></ManageFoods>
           </PrivateRoute>
         )
+      },
+      {
+        path:'blogs',
+        Component:Blogs,
       }
 
     ]

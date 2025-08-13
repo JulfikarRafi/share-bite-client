@@ -46,6 +46,7 @@ const Navbar = () => {
             }>
               Available Foods
             </NavLink>
+            
 
             {user && (
               <>
