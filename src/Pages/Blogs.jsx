@@ -26,7 +26,7 @@ const Blogs = () => {
   ];
 
   return (
-    <section className="bg-orange-100 py-10 px-4">
+    <section className="bg-orange-100 py-10 px-4 mt-24">
       <div className="max-w-6xl mx-auto text-center mb-8">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
           Latest From Our Blog

@@ -26,7 +26,9 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-orange-400 drop-shadow-2xl px-4 lg:px-28 relative text-white">
+      {/* <nav className="bg-orange-400 drop-shadow-2xl px-4 lg:px-28 relative text-white"> */}
+        <nav className="fixed top-0 w-full z-50 bg-orange-400 drop-shadow-2xl px-4 lg:px-28 text-white space-y-20">
+
         <div className="flex justify-between items-center py-6 container mx-auto">
 
           <div className="flex items-center gap-2">
@@ -105,6 +107,7 @@ const Navbar = () => {
           <div className="lg:hidden px-4 pb-4 bg-gray-100 rounded-2xl text-black space-y-4 text-center rounded-b-lg">
             <NavLink to="/" onClick={() => setMenuOpen(false)} className="block text-lg">Home</NavLink>
             <NavLink to="/availablefoods" onClick={() => setMenuOpen(false)} className="block text-lg">Available Foods</NavLink>
+            <NavLink to="/blogs" onClick={() => setMenuOpen(false)} className="block text-lg">Blogs</NavLink>
 
             {user && (
               <>
