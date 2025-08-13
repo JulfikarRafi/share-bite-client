@@ -101,7 +101,7 @@ const ManageFoods = () => {
   if (loading) return <div className="text-center mt-10">Loading your foods...</div>;
 
   return (
-    <div className="max-w-7xl mx-auto p-4">
+    <div className="max-w-7xl mx-auto p-4 mt-24">
       <h1 className="text-3xl font-bold mb-6 text-center">Manage Your Foods</h1>
 
       {foods.length === 0 ? (
