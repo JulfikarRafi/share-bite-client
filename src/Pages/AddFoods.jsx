@@ -133,7 +133,7 @@ const AddFoods = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-8 p-6 bg-white shadow-md rounded-xl">
+    <div className="max-w-2xl mx-auto mt-24 p-6 bg-white shadow-md rounded-xl ">
       <h2 className="text-2xl font-bold mb-4 text-center">Add Food</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
         <input {...register('foodName')} placeholder="Food Name" className="input input-bordered w-full" required />
