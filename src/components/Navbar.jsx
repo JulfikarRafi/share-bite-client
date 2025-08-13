@@ -46,7 +46,11 @@ const Navbar = () => {
             }>
               Available Foods
             </NavLink>
-            
+            <NavLink to="/blogs" className={({ isActive }) =>
+              isActive ? " text-xl border-b-2 border-white" : "text-xl"
+            }>
+              Home
+            </NavLink>
 
             {user && (
               <>
