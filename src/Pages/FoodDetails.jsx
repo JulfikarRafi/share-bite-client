@@ -388,7 +388,7 @@ const FoodDetails = () => {
   if (!food) return <div className="text-center mt-20 text-red-500">Food not found</div>;
 
   return (
-    <div className="max-w-3xl mx-auto p-4 mt-10">
+    <div className="max-w-3xl mx-auto p-4 mt-28">
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
         <img src={food.foodImage} alt={food.foodName} className="w-full h-64 object-cover" />
         <div className="p-6 space-y-3">
