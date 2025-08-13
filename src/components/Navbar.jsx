@@ -49,7 +49,7 @@ const Navbar = () => {
             <NavLink to="/blogs" className={({ isActive }) =>
               isActive ? " text-xl border-b-2 border-white" : "text-xl"
             }>
-              Home
+              Blogs
             </NavLink>
 
             {user && (
