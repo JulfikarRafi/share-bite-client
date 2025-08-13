@@ -10,6 +10,7 @@ import FoodDetails from "../Pages/FoodDetails";
 import MyRequest from "../Pages/MyRequest";
 import ManageFoods from "../Pages/ManageFoods";
 import Blogs from "../Pages/Blogs";
+import Error from "../Pages/Error";
 
 
 
@@ -71,6 +72,12 @@ const router = createBrowserRouter([
 
     ]
   },
+  {
+    path: "/*",
+    Component: Error,
+  },
+
+  
 ]);
 
 

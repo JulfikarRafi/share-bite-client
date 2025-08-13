@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { motion } from "motion/react"
+import { NavLink } from 'react-router';
 
 const Banner = () => {
   return (
@@ -25,9 +26,11 @@ const Banner = () => {
           Join our mission to create a community where no meal goes to waste and no one goes hungry.
         </motion.p>
 
-        <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition-all duration-300">
-          Donate Food Now
-        </motion.button>
+        <NavLink to='/addfoods'>
+          <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition-all duration-300">
+            Donate Food Now
+          </motion.button>
+        </NavLink>
 
       </div>
     </div>
