@@ -11,6 +11,7 @@ import MyRequest from "../Pages/MyRequest";
 import ManageFoods from "../Pages/ManageFoods";
 import Blogs from "../Pages/Blogs";
 import Error from "../Pages/Error";
+import Tips from "../Pages/Tips";
 
 
 
@@ -68,6 +69,10 @@ const router = createBrowserRouter([
       {
         path:'blogs',
         Component:Blogs,
+      },
+      {
+        path:'tips',
+        Component:Tips,
       }
 
     ]

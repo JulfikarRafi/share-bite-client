@@ -53,6 +53,11 @@ const Navbar = () => {
             }>
               Blogs
             </NavLink>
+            <NavLink to="/tips" className={({ isActive }) =>
+              isActive ? " text-xl border-b-2 border-white" : "text-xl"
+            }>
+              Tips
+            </NavLink>
 
             {user && (
               <>
@@ -108,6 +113,7 @@ const Navbar = () => {
             <NavLink to="/" onClick={() => setMenuOpen(false)} className="block text-lg">Home</NavLink>
             <NavLink to="/availablefoods" onClick={() => setMenuOpen(false)} className="block text-lg">Available Foods</NavLink>
             <NavLink to="/blogs" onClick={() => setMenuOpen(false)} className="block text-lg">Blogs</NavLink>
+            <NavLink to="/tips" onClick={() => setMenuOpen(false)} className="block text-lg">Tips</NavLink>
 
             {user && (
               <>

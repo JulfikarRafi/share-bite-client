@@ -1,5 +1,6 @@
 import React from "react";
 import { MdLocationOn, MdEmail, MdPhone } from "react-icons/md";
+import SendEmail from "../components/SendEmail";
 
 const ContactUs = () => {
   return (
@@ -48,6 +49,9 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      <SendEmail></SendEmail>
+
+      
     </section>
   );
 };
